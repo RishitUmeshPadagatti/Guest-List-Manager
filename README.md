@@ -51,7 +51,7 @@ Before running this project, make sure you have the following installed:
 
 3. **Start the development server**
    ```bash
-   npm run dev
+   npm run start
    ```
 
 4. **Run on specific platforms**
