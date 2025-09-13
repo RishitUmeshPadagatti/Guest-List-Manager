@@ -1,12 +1,8 @@
 import FontAwesome from '@expo/vector-icons/FontAwesome';
-import { DarkTheme, DefaultTheme, ThemeProvider } from '@react-navigation/native';
-import { useFonts } from 'expo-font';
-import { Link, Stack, Tabs } from 'expo-router';
-import * as SplashScreen from 'expo-splash-screen';
-import { useEffect } from 'react';
+import { Tabs } from 'expo-router';
 import 'react-native-reanimated';
 import "../global.css"
-import { Pressable, useColorScheme } from 'react-native';
+import { useColorScheme } from 'react-native';
 import Colors from '@/constants/Colors';
 
 function TabBarIcon(props: {
@@ -17,7 +13,6 @@ function TabBarIcon(props: {
 }
 
 export default function RootLayout() {
-
 	return <RootLayoutNav />;
 }
 
@@ -26,19 +21,25 @@ function RootLayoutNav() {
 
 	return (
 		<Tabs
-			screenOptions={{tabBarActiveTintColor: Colors[colorScheme ?? 'light'].tint,}}>
+			screenOptions={{
+				tabBarActiveTintColor: Colors[colorScheme ?? 'light'].tint,
+				headerShown: false,
+				tabBarStyle: {
+					backgroundColor: Colors[colorScheme ?? 'light'].background
+				}
+			}}>
 			<Tabs.Screen
 				name="index"
 				options={{
-					title: 'Tab One',
-					tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
+					title: 'Home',
+					tabBarIcon: ({ color }) => <TabBarIcon name="home" color={color} />,
 				}}
 			/>
 			<Tabs.Screen
 				name="two"
 				options={{
-					title: 'Tab Two',
-					tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
+					title: 'Add',
+					tabBarIcon: ({ color }) => <TabBarIcon name="plus" color={color} />,
 				}}
 			/>
 		</Tabs>
